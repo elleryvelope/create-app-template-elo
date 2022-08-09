@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 'use strict';
-try {
+
   const path = require('path');
   const util = require('util');
   const packageJson = require('../package.json');
   const fs = require('fs');
   const exec = util.promisify(require('child_process').exec);
 
-  const folderName = process.argv[2];
+  const folderName = !process.argv ? '' : process.argv[2];
   const ownPath = process.cwd();
   const appPath = path.join(ownPath, folderName);
   const repo = 'https://github.com/Flaze24/ELOMax.git';
-
+  
+try {
   if(!path){
     console.log('Please use a proper folder name when creating a new app. For example:')
     console.log('create-lng-core-app test-app')
