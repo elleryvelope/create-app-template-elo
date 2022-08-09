@@ -6,15 +6,16 @@
   const packageJson = require('../package.json');
   const fs = require('fs');
   const exec = util.promisify(require('child_process').exec);
+  const folderName = !process.argv ? '' : process.argv[2];
   try {
-    const folderName = !process.argv ? '' : process.argv[2];
     const ownPath = process.cwd();
     const appPath = path.join(ownPath, folderName);
-    const repo = 'https://github.com/Flaze24/ELOMax.git';
   } catch (error) {
     console.log('error caught')
     process.exit(1)
   }
+  const repo = 'https://github.com/Flaze24/ELOMax.git';
+  
 
 
 try {
