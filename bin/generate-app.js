@@ -8,14 +8,17 @@ const fs = require('fs');
 const exec = util.promisify(require('child_process').exec);
 
 const folderName = !process.argv ? '' : process.argv[2];
-if(folderName===''){
+const ownPath = process.cwd();
+let appPath =''
+const repo = 'https://github.com/Flaze24/ELOMax.git';
+
+try {
+  appPath = path.join(ownPath, folderName);
+} catch (error) {
   console.log('Please use a proper folder name when creating a new app. For example:')
   console.log('create-lng-core-app test-app')
   process.exit(1)
 }
-const ownPath = process.cwd();
-const appPath =!path ? '' : path.join(ownPath, folderName);
-const repo = 'https://github.com/Flaze24/ELOMax.git';
   
 if(!appPath){
   console.log('Please use a proper folder name when creating a new app. For example:')
