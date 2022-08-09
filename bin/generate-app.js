@@ -12,6 +12,11 @@ const ownPath = process.cwd();
 const appPath = path.join(ownPath, folderName);
 const repo = 'https://github.com/Flaze24/ELOMax.git';
 
+if(!path){
+  console.log('Please use a proper folder name when creating a new app. For example:')
+  console.log('create-lng-core-app test-app')
+}
+
 if (!process.argv && process.argv.length < 3) {
   console.log('You have to provide a name to your app.');
   console.log('For example :');
