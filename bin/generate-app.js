@@ -64,6 +64,7 @@ async function setup() {
     console.log('Check Readme.md for more informations');
     console.log();
   } catch (error) {
+    console.log("You've got an error")
     console.log(error);
   }
 }
