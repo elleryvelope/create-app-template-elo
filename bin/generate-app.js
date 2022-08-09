@@ -12,7 +12,7 @@ const ownPath = process.cwd();
 const appPath = path.join(ownPath, folderName);
 const repo = 'https://github.com/Flaze24/ELOMax.git';
 
-if (process.argv.length < 3) {
+if (!process.argv && process.argv.length < 3) {
   console.log('You have to provide a name to your app.');
   console.log('For example :');
   console.log('npx create-my-boilerplate my-app');

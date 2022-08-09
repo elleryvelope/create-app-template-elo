@@ -1,9 +1,10 @@
 name: Create LNG Core App Package
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Bump Version"]
+    types:
+      - completed
 jobs:
   publish-package:
     runs-on: ubuntu-latest
