@@ -7,8 +7,8 @@
   const fs = require('fs');
   const exec = util.promisify(require('child_process').exec);
   const folderName = !process.argv ? '' : process.argv[2];
+  const ownPath = process.cwd();
   try {
-    const ownPath = process.cwd();
     const appPath = path.join(ownPath, folderName);
   } catch (error) {
     console.log('error caught')
