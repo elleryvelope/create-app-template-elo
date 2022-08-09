@@ -15,21 +15,18 @@ const repo = 'https://github.com/Flaze24/ELOMax.git';
 try {
   appPath = path.join(ownPath, folderName);
 } catch (error) {
-  console.log('Please use a proper folder name when creating a new app. For example:')
-  console.log('create-lng-core-app test-app')
-  process.exit(1)
-}
-  
-if(!appPath){
-  console.log('Please use a proper folder name when creating a new app. For example:')
-  console.log('create-lng-core-app test-app')
-  process.exit(1)
+  console.log('Please input a name for your app');
+  console.log('For example :');
+  console.log()
+  console.log('\x1b[34m', 'npx create-my-boilerplate test-app', '\x1b[0m');
+  process.exit(1);
 }
 
-if (!process.argv && process.argv.length < 3) {
-  console.log('You have to provide a name to your app.');
+if (process.argv.length < 3) {
+  console.log('Your app name should be more than three characters');
   console.log('For example :');
-  console.log('npx create-my-boilerplate my-app');
+  console.log()
+  console.log('\x1b[34m', 'npx create-my-boilerplate test-app', '\x1b[0m');
   process.exit(1);
 }
 
