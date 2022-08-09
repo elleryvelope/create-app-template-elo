@@ -1,12 +1,12 @@
 {
   "name": "@elleryvelope/create-app-template-elo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
-  "publishConfig":{
-    "registry":"https://npm.pkg.github.com/@elleryvelope"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@elleryvelope"
   },
-  "bin":{
+  "bin": {
     "create-lng-core-app": "./bin/generate-app.js"
   },
   "scripts": {
