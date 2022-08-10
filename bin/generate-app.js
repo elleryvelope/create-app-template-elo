@@ -50,8 +50,8 @@ async function setup() {
     process.chdir(appPath);
 
     console.log();
-
-    await customizePackageJson(packageJson,folderName)
+    const newpackageJson = require(`${process.cwd()}/package.json`);
+    await customizePackageJson(newpackageJson,folderName)
 
     await exec('npx rimraf ./.git');
     console.log();
