@@ -22,7 +22,7 @@ try {
   process.exit(1);
 }
 
-if (process.argv.length < 3) {
+if (folderName.length < 3 && folderName!=='.') {
   console.log('Your app name should be more than three characters');
   console.log('For example :');
   console.log()
@@ -51,6 +51,8 @@ async function setup() {
 
     console.log();
 
+    await customizePackageJson(packageJson,folderName)
+
     await exec('npx rimraf ./.git');
     console.log();
     console.log('\x1b[34m', 'Installing dependencies...', '\x1b[0m');
@@ -77,3 +79,28 @@ async function setup() {
 
 setup();
 
+function customizePackageJson(packageJson, folderName){
+  const {
+    bin,
+    keywords,
+    license,
+    homepage,
+    repository,
+    bugs,
+    ...newPackage
+  } = packageJson;
+
+  console.log(newPackage)
+
+  Object.assign(newPackage,{
+    name: folderName,
+    description: folderName,
+    version:"1.0.0"
+  });
+
+  fs.writeFileSync(
+    `${process.cwd()}/package.json`,
+    JSON.stringify(newPackage, null, 2),
+    'utf8'
+  );
+}
